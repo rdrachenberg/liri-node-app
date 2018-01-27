@@ -25,6 +25,7 @@
   "homepage": "https://github.com/rdrachenberg/liri-node-app#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "eslint": "^4.16.0",
     "node-spotify-api": "^1.0.7",
     "request": "^2.83.0",
     "twitter": "^1.7.1"
