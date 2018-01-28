@@ -8,7 +8,7 @@ var keys = require('./keys.js');
 var dotenv = require('dotenv')
 
 //dont know if i need the below variable with require 
-var enviro = require('./enviro.env')
+var enviro = require('./.env')
 
 // creating the new object 
 var buf = new Buffer('BASIC=basic')
