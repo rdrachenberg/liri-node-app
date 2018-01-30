@@ -1,3 +1,6 @@
+// create a variable that requires the request package 
+var request = require("request");
+
 // require dotenv package 
 require('dotenv').config();
 
@@ -8,19 +11,24 @@ var keys = require('./keys.js');
 var dotenv = require('dotenv');
 
 //dont know if i need the below variable with require 
-var enviro = require('./.env')
+// var enviro = require('./.env')
+
+// requrie spotify package and creates a spotify variable 
+var Spotify = require('node-spotify-api');
+
+// create variable twitter that requires twitter npm package 
+var Twitter = require('twitter');
 
 // creating the new object 
-var buf = new Buffer('BASIC=basic')
+var buf = new Buffer('BASIC=basic');
 
 // returns the object
-var config = dotenv.parse(buf) 
+var config = dotenv.parse(buf); 
 
 //print the object to the console
-console.log(typeof config, config)
+console.log(typeof config, config);
 
 // create variable to access key information 
-var spotify = new Spotify(keys.spotify)
-var client = new Twitter(keys.twitter)
+var spotify = new Spotify(keys.spotify);
+var client = new Twitter(keys.twitter);
 
-console.log(spotify)
