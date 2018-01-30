@@ -1,11 +1,11 @@
 // require dotenv package 
-require("dotenv").config();
+require('dotenv').config();
 
 // require keys.js file
 var keys = require('./keys.js');
 
 // creating a variable that requries 'dotenv' 
-var dotenv = require('dotenv')
+var dotenv = require('dotenv');
 
 //dont know if i need the below variable with require 
 var enviro = require('./.env')
