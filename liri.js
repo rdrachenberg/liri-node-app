@@ -91,6 +91,7 @@ var spotArgSong = process.argv[3];
             console.log("Artist Name: " + artist.artists[0].name);
             console.log("Song Name: " + spotArgSong);
             console.log("Preview Link: " + artist.artists[0].external_urls.spotify);
+            console.log("Album: " + artist.name);
             
             // console.log(yourval);
             //     var songDetails = data.tracks.items[0];
