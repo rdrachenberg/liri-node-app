@@ -66,23 +66,37 @@ if (twitArg === 'my-tweets') {
     
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
         if (!error) {
-            console.log(tweets);
-        }
+            console.log(JSON.stringify(tweets[0].text))
+            console.log(JSON.stringify(tweets[1].text))
+            console.log(JSON.stringify(tweets[2].text))
+        };
     });
        
 } else {
-    console.log("tweets didnt run");
+    console.log("");
 }
 
 var spotArg = process.argv[2];
 var spotArgSong = process.argv[3];
 
     if (spotArg === 'spotify-this-song') {
-        spotify.search({ type: 'track', query: spotArgSong}, function (err, data) {
+        spotify.search({ type: 'track', query: spotArgSong, limit: 1}, function (err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
             };
+            var yourval = (JSON.stringify(data, null, 4));
 
-            console.log(data);
+            var artist = data.tracks.items[0];
+
+            console.log("Artist Name: " + artist.artists[0].name);
+            console.log("Song Name: " + spotArgSong);
+            console.log("Preview Link: " + artist.artists[0].external_urls.spotify);
+            
+            // console.log(yourval);
+            //     var songDetails = data.tracks.items[0];
+            // console.log(songDetails.artists[0].name);
+
+            // could also do this for the console:
+            //     console.log("Artist: " + songDetails.artists[0].name);
         });
     };
