@@ -75,9 +75,10 @@ if (twitArg === 'my-tweets') {
 }
 
 var spotArg = process.argv[2];
+var spotArgSong = process.argv[3];
 
     if (spotArg === 'spotify-this-song') {
-        spotify.search({ type: 'track', query: 'All the Small Things' }, function (err, data) {
+        spotify.search({ type: 'track', query: spotArgSong}, function (err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
             };
