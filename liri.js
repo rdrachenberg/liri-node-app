@@ -64,13 +64,24 @@ var twitArg = process.argv[2];
 
 if (twitArg === 'my-tweets') {
     
-    
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
         if (!error) {
             console.log(tweets);
         }
     });
        
-} else (error) {
-    console.log("This is an error", error);
+} else {
+    console.log("tweets didnt run");
 }
+
+var spotArg = process.argv[2];
+
+    if (spotArg === 'spotify-this-song') {
+        spotify.search({ type: 'track', query: 'All the Small Things' }, function (err, data) {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            };
+
+            console.log(data);
+        });
+    };
