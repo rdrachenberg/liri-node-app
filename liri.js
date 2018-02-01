@@ -31,30 +31,34 @@ var client = new Twitter(keys.twitter);
 // create variable with argv, variable for query reqeust from omdb
 // then the actual request f
 
-var nodeArgs = process.argv;
+var movieArg = process.argv[2];
 
-var movie = "";
+var nodeArgs = process.argv[3];
 
-    for (var i = 2; i < nodeArgs.length; i++) {
+var nodeArgsTwo = process.argv[4];
 
-        if (i > 2 && i < nodeArgs.length) {
+var movie = nodeArgs;
 
-            movie = movie + "+" + nodeArgs[i];
-
-        } else {
-
-            movie += nodeArgs[i];
-
-        }
-    };
 
     var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=7fc0d809"; 
     
     request(queryURL, function (error, response, body) {
 
         // If I have a successful request, it will return a status code of 200 and then move forward with the function 
-        if (!error && response.statusCode === 200) {
-            var rotten = "Rotten Tomatos"
+        if (movieArg === 'movie-this') {
+            
+            for (var i = 2; i < nodeArgs.length; i++) {
+
+                if (i > 2 && i < nodeArgs.length) {
+
+                    movie = movie + "+" + nodeArgs[i];
+
+                } else {
+
+                    movie += nodeArgs[i];
+
+                }
+            }
             // Parse and recover the Title of the Movie
             console.log("Title: " + JSON.parse(body).Title);
             // Parsae and recover the Year the movie was made 
@@ -123,5 +127,11 @@ if (random === 'do-what-it-says') {
         }
         // We will then print the contents of data
         console.log(data);
+         
+        var dataArr = data.split(",");
+
+         // We will then re-display the content as an array for later use.
+         console.log(dataArr);
+         
     });
 };
